@@ -1,401 +1,391 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f5f9ff">
-  <meta name="description" content="Md Rizwan — aspiring AWS Cloud and DevOps Engineer. Explore hands-on AWS infrastructure, Terraform, CI/CD, Linux, containers, and troubleshooting work.">
-  <title>Md Rizwan | AWS Cloud & DevOps Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{color-scheme:light;--bg:#f5f9ff;--bg2:#e9f2ff;--panel:#fff;--panel2:#f0f6ff;--text:#0c1c3d;--muted:#4b5f80;--line:#d3e0f5;--accent:#0b66ff;--accent2:#00b8a9;--gold:#d97706;--on-accent:#fff;--shadow:0 18px 50px rgba(20,70,170,.14);--radius:20px}
-    :root[data-theme="dark"]{color-scheme:dark;--bg:#242a35;--bg2:#2b323f;--panel:#323a49;--panel2:#3a4455;--text:#f6f8fb;--muted:#c0c8d6;--line:#4a5467;--accent:#2dd4bf;--accent2:#fbbf24;--gold:#fbbf24;--on-accent:#062b26;--shadow:0 18px 50px rgba(8,12,20,.28)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.7 Manrope,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit}button{font:inherit}::selection{background:var(--accent);color:var(--on-accent)}.container{width:min(1120px,calc(100% - 40px));margin:auto}.mono,.eyebrow,.tag,.status,.project-number{font-family:"DM Mono",monospace}.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--accent);font-size:12px;letter-spacing:.14em;text-transform:uppercase}.eyebrow:before{content:"";height:1px;width:24px;background:currentColor}.muted{color:var(--muted)}
-    .site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav-wrap{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{text-decoration:none;font-weight:800;letter-spacing:-.04em;font-size:20px;white-space:nowrap}.brand span{color:var(--accent)}.nav{display:flex;align-items:center;gap:24px}.nav a{text-decoration:none;color:var(--muted);font-size:13px;font-weight:700;white-space:nowrap}.nav a:hover,.nav a:focus-visible{color:var(--accent)}.nav-actions{display:flex;gap:8px;align-items:center}.icon-btn,.menu-btn{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:12px;padding:9px 12px;cursor:pointer}.menu-btn{display:none}
-    .hero{position:relative;overflow:hidden;padding:94px 0 68px;background:radial-gradient(ellipse at 84% 20%,color-mix(in srgb,var(--accent2) 16%,transparent),transparent 34%),radial-gradient(ellipse at 5% 90%,color-mix(in srgb,var(--accent) 10%,transparent),transparent 30%)}.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;align-items:center;gap:56px}.availability{display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px;margin-bottom:24px;background:var(--panel)}.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 13%,transparent)}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(42px,6vw,72px);line-height:1.04;letter-spacing:-.065em;margin-bottom:22px;max-width:780px}h1 .gradient{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}.hero-copy{max-width:650px;font-size:18px;color:var(--muted);margin-bottom:28px}.button-row{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;border-radius:12px;padding:12px 17px;font-weight:800;font-size:13px;border:1px solid var(--line);transition:transform .2s,border-color .2s,background .2s}.btn:hover{transform:translateY(-2px);border-color:var(--accent)}.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}.btn-secondary{background:var(--panel);color:var(--text)}.text-link{color:var(--accent);text-decoration:none;font-weight:800}.hero-footnote{margin-top:22px;font-size:12px;color:var(--muted)}
-    .terminal{background:linear-gradient(145deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow);transform:rotate(1deg)}.terminal-top{display:flex;align-items:center;gap:7px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:18px}.terminal-dot{width:8px;height:8px;border-radius:50%;background:var(--muted);opacity:.7}.terminal-label{margin-left:auto;font:11px "DM Mono",monospace;color:var(--muted)}.code-line{font:12px/2 "DM Mono",monospace;color:var(--muted);white-space:normal;overflow-wrap:anywhere}.code-line .prompt{color:var(--accent)}.code-line .cmd{color:var(--text)}.code-line .success{color:var(--accent)}.terminal-result{margin-top:15px;border:1px solid var(--line);background:var(--panel2);padding:14px;border-radius:12px}.result-title{font-size:12px;font-weight:800;margin-bottom:8px}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.result-cell{padding:10px;border-radius:9px;background:var(--panel)}.result-cell b{display:block;font-size:12px}.result-cell span{font:10px "DM Mono",monospace;color:var(--muted)}
-    .quick-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}.strip-grid{display:grid;grid-template-columns:repeat(4,1fr)}.strip-item{padding:22px 18px;border-right:1px solid var(--line)}.strip-item:first-child{padding-left:0}.strip-item:last-child{border:0}.strip-item b{display:block;font-size:14px;margin-bottom:3px}.strip-item span{font-size:12px;color:var(--muted)}
-    section{padding:88px 0}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:34px}.section-heading h2{font-size:clamp(29px,4vw,44px);line-height:1.15;letter-spacing:-.05em;margin:10px 0 0}.section-heading p{max-width:470px;color:var(--muted);margin:0}.section-kicker{color:var(--accent);font:12px "DM Mono",monospace;letter-spacing:.1em;text-transform:uppercase}.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
-    .project-feature{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;box-shadow:var(--shadow)}.project-info{padding:34px}.project-topline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}.status{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));padding:6px 9px;border-radius:999px}.project-number{font-size:12px;color:var(--muted)}.project-info h3{font-size:27px;letter-spacing:-.04em;line-height:1.2;margin-bottom:13px}.project-info>p{color:var(--muted);font-size:14px}.feature-list{padding:0;list-style:none;margin:22px 0}.feature-list li{position:relative;padding-left:24px;margin:10px 0;font-size:13px;color:var(--muted)}.feature-list li:before{content:"↗";position:absolute;left:0;color:var(--accent);font-weight:800}.tag-list{display:flex;flex-wrap:wrap;gap:7px;margin:20px 0 24px}.tag{font-size:10px;color:var(--muted);padding:6px 9px;border:1px solid var(--line);border-radius:7px}.project-visual{padding:26px;background:linear-gradient(155deg,var(--bg2),var(--panel2));border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;min-width:0}.visual-caption{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font:10px "DM Mono",monospace;margin-bottom:16px}.architecture{width:100%;height:auto;display:block}.architecture .box{fill:var(--panel);stroke:var(--line);stroke-width:1.4}.architecture .box-accent{stroke:var(--accent)}.architecture text{fill:var(--text);font-family:Manrope,sans-serif;font-size:11px;font-weight:700}.architecture .small{fill:var(--muted);font-size:9px;font-weight:500}.architecture .wire{fill:none;stroke:var(--accent);stroke-width:1.8}.architecture .wire-dash{fill:none;stroke:var(--accent2);stroke-width:1.5;stroke-dasharray:4 4}.project-note{font-size:11px;color:var(--muted);margin:14px 0 0}
-    .project-details{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}.detail-card{padding:20px}.detail-card .mini-icon{font:14px "DM Mono",monospace;color:var(--accent);margin-bottom:13px}.detail-card h4{font-size:14px;margin:0 0 7px}.detail-card p{font-size:12px;color:var(--muted);margin:0}
-    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.skill-card{padding:23px;min-height:190px}.skill-icon{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:11px;color:var(--accent);font:14px "DM Mono",monospace;margin-bottom:18px}.skill-card h3{font-size:16px;margin-bottom:8px}.skill-card p{font-size:12px;color:var(--muted);margin-bottom:16px}.skill-tags{display:flex;flex-wrap:wrap;gap:6px}.skill-tags span{background:var(--panel2);border:1px solid var(--line);padding:5px 7px;border-radius:6px;font-size:10px;color:var(--muted)}.honesty-note{margin-top:18px;padding:14px 17px;border-left:2px solid var(--gold);background:color-mix(in srgb,var(--gold) 7%,var(--panel));color:var(--muted);font-size:12px}
-    .workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.workflow-step{padding:23px 20px;background:var(--panel);border-right:1px solid var(--line)}.workflow-step:last-child{border:0}.step-num{font:12px "DM Mono",monospace;color:var(--accent);margin-bottom:18px}.workflow-step h3{font-size:14px;margin-bottom:8px}.workflow-step p{font-size:12px;color:var(--muted);margin:0}
-    .notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.note-card{padding:22px}.note-label{font:10px "DM Mono",monospace;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}.note-card h3{font-size:16px;line-height:1.4;margin:12px 0}.note-card p{font-size:12px;color:var(--muted);margin:0}.note-card details{margin-top:15px;border-top:1px solid var(--line);padding-top:12px}.note-card summary{cursor:pointer;font-size:12px;font-weight:800;color:var(--accent)}.note-card details p{padding-top:10px}
-    .timeline{max-width:800px;border-left:1px solid var(--line);margin-left:8px;padding-left:27px}.timeline-item{position:relative;padding:0 0 28px}.timeline-item:last-child{padding-bottom:0}.timeline-item:before{content:"";position:absolute;left:-33px;top:7px;width:10px;height:10px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 5px var(--bg)}.timeline-item h3{font-size:15px;margin-bottom:5px}.timeline-item p{font-size:12px;color:var(--muted);margin:0}.timeline-date{font:10px "DM Mono",monospace;color:var(--accent);margin-bottom:6px}
-    .contact-panel{position:relative;overflow:hidden;padding:42px;background:linear-gradient(120deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:24px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:30px}.contact-panel:after{content:"";position:absolute;width:280px;height:280px;border:1px solid color-mix(in srgb,var(--accent) 18%,transparent);border-radius:50%;right:100px;top:-180px;pointer-events:none}.contact-panel h2{font-size:clamp(27px,4vw,42px);letter-spacing:-.05em;margin:10px 0}.contact-panel p{color:var(--muted);max-width:560px;margin-bottom:0;font-size:14px}.contact-links{display:flex;flex-direction:column;gap:10px;z-index:1}.contact-links a{white-space:nowrap}.footer{padding:28px 0 38px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer a{color:var(--accent);text-decoration:none}
-    @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:34px}.terminal{max-width:650px;transform:none}.project-feature{grid-template-columns:1fr}.project-visual{border-left:0;border-top:1px solid var(--line)}.skills-grid{grid-template-columns:repeat(2,1fr)}.notes-grid{grid-template-columns:repeat(2,1fr)}.workflow{grid-template-columns:repeat(2,1fr)}.workflow-step:nth-child(2){border-right:0}.workflow-step:nth-child(-n+2){border-bottom:1px solid var(--line)}.contact-panel{grid-template-columns:1fr}.contact-links{flex-direction:row;flex-wrap:wrap}}
-    @media(max-width:680px){.container{width:min(100% - 30px,1120px)}.nav-wrap{min-height:66px}.menu-btn{display:inline-flex}.nav{display:none;position:absolute;top:65px;left:0;right:0;padding:18px 20px 22px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:17px}.nav.open{display:flex}.nav-actions{margin-left:auto}.hero{padding:64px 0 45px}h1{font-size:clamp(40px,12vw,58px)}.hero-copy{font-size:16px}.strip-grid{grid-template-columns:repeat(2,1fr)}.strip-item{padding:17px 12px;border-bottom:1px solid var(--line)}.strip-item:first-child{padding-left:12px}.strip-item:nth-child(2){border-right:0}.strip-item:nth-child(3),.strip-item:nth-child(4){border-bottom:0}.section-heading{display:block}.section-heading p{margin-top:14px}.section-heading{margin-bottom:25px}section{padding:64px 0}.project-info{padding:23px}.project-info h3{font-size:23px}.project-visual{padding:16px}.project-details{grid-template-columns:1fr}.skills-grid,.notes-grid{grid-template-columns:1fr}.skill-card{min-height:0}.workflow{grid-template-columns:1fr}.workflow-step{border-right:0;border-bottom:1px solid var(--line)}.workflow-step:nth-child(2){border-bottom:1px solid var(--line)}.workflow-step:last-child{border-bottom:0}.contact-panel{padding:27px 22px}.contact-links{flex-direction:column;align-items:stretch}.footer-inner{align-items:flex-start;flex-direction:column}.result-grid{grid-template-columns:1fr 1fr}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
-  
-/* ---- upgrade: animation + bright polish ---- */
-.terminal{--panel:#2c3340;--panel2:#364052;--bg2:#252b37;--text:#f3f6fb;--muted:#bcc5d4;--line:#4a5467;--accent:#5eead4;color:var(--text)}
-.hero-grid{position:relative;z-index:1}
-.orb{position:absolute;border-radius:50%;filter:blur(64px);pointer-events:none;animation:float 12s ease-in-out infinite}
-.o1{width:380px;height:380px;background:var(--accent2);top:-120px;right:-80px;opacity:.28}
-.o2{width:330px;height:330px;background:var(--accent);bottom:-150px;left:-100px;opacity:.22;animation-delay:-5s}
-h1 .gradient{background:linear-gradient(100deg,var(--accent),var(--accent2),var(--accent));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shift 6s linear infinite}
-.hero-grid>div:first-child>*{animation:up .8s cubic-bezier(.2,.7,.2,1) both}
-.hero-grid>div:first-child>:nth-child(2){animation-delay:.1s}.hero-grid>div:first-child>:nth-child(3){animation-delay:.2s}.hero-grid>div:first-child>:nth-child(4){animation-delay:.3s}.hero-grid>div:first-child>:nth-child(5){animation-delay:.4s}.hero-grid>div:first-child>:nth-child(6){animation-delay:.5s}
-.terminal{animation:up .9s .3s both,bob 6s ease-in-out 1.3s infinite}
-.code-line{animation:line .5s both}
-.code-line:nth-child(2){animation-delay:1s}.code-line:nth-child(3){animation-delay:1.4s}.code-line:nth-child(4){animation-delay:1.9s}.code-line:nth-child(5){animation-delay:2.3s}.code-line:nth-child(6){animation-delay:2.8s}.code-line:nth-child(7){animation-delay:3.2s}
-.terminal-result{animation:up .7s 3.6s both}
-.result-cell{transition:transform .25s,background .25s}.result-cell:hover{transform:translateY(-3px);background:var(--panel2)}
-.dot{animation:pulse 2s infinite}
-.btn-primary{position:relative;overflow:hidden}.btn-primary:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);animation:shine 3.5s infinite}
-.btn:hover{box-shadow:0 10px 26px color-mix(in srgb,var(--accent) 28%,transparent)}
-.panel{transition:transform .3s,box-shadow .3s,border-color .3s}
-.panel:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 20px 50px color-mix(in srgb,var(--accent) 18%,transparent)}
-.project-feature:hover{transform:none}
-.skill-icon{background:linear-gradient(135deg,var(--accent),var(--accent2));color:var(--on-accent);border:0;font-weight:700}
-.tag,.skill-tags span{transition:background .2s,color .2s,transform .2s}
-.tag:hover,.skill-tags span:hover{background:var(--accent);color:var(--on-accent);transform:translateY(-2px)}
-.strip-item{transition:background .25s}.strip-item:hover{background:var(--panel2)}
-.workflow-step{transition:background .25s}.workflow-step:hover{background:var(--panel2)}
-.timeline{border-image:linear-gradient(var(--accent),var(--accent2),transparent) 1}
-.timeline-item:before{animation:pulse 2.6s infinite}
-.nav a.active{color:var(--accent)}
-.architecture .box-accent{animation:glow 3s ease-in-out infinite}
-.progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:50}
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}.reveal.in{opacity:1;transform:none}
-.about-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;margin-bottom:44px}.about-card{padding:28px}.about-card h3{font-size:20px;letter-spacing:-.03em;margin-bottom:12px}.about-card p{color:var(--muted);font-size:14px}.role-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.role-chips span{font:11px "DM Mono",monospace;padding:7px 11px;border-radius:999px;background:color-mix(in srgb,var(--accent) 10%,var(--panel));border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));color:var(--accent)}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}.stat{padding:18px 12px;text-align:center;display:flex;flex-direction:column;justify-content:center}.stat b{font-size:36px;line-height:1.1;letter-spacing:-.04em;color:var(--accent)}.stat span{font-size:11px;color:var(--muted)}
-@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
-@keyframes up{from{opacity:0;transform:translateY(24px)}}
-@keyframes line{from{opacity:0;transform:translateX(-10px)}}
-@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,34px)}}
-@keyframes bob{0%,100%{transform:rotate(1deg) translateY(0)}50%{transform:rotate(1deg) translateY(-9px)}}
-@keyframes shift{to{background-position:200% 0}}
-@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}100%{box-shadow:0 0 0 11px transparent}}
-@keyframes shine{0%,60%{left:-60%}100%{left:140%}}
-@keyframes flow{to{stroke-dashoffset:-16}}
-@keyframes glow{0%,100%{filter:none}50%{filter:drop-shadow(0 0 7px var(--accent))}}
-.architecture .arrow{stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;transform-box:fill-box;}
-.architecture .dots{stroke-dasharray:.1 5.2;stroke-linecap:round;stroke-width:2.6;animation:dots .9s linear infinite}
-.architecture .light{stroke:var(--accent2);stroke-width:3.4;stroke-linecap:round;stroke-dasharray:3 19;animation:dots 1.3s linear infinite;filter:drop-shadow(0 0 4px var(--accent2))}
-@keyframes dots{to{stroke-dashoffset:-22}}
-@media(prefers-reduced-motion:reduce){.architecture .light{display:none}}
-
-    /* Responsive profile photo: scales smoothly from mobile to desktop */
-    .profile-intro{display:flex;align-items:center;gap:clamp(12px,2.5vw,20px);margin:0 0 20px;padding:14px;background:var(--panel2);border:1px solid var(--line);border-radius:16px;min-width:0}
-    .profile-photo{display:block;flex:0 0 auto;width:clamp(84px,22vw,128px);height:clamp(84px,22vw,128px);aspect-ratio:1/1;object-fit:cover;object-position:center 25%;border-radius:50%;border:3px solid var(--accent);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 12%,transparent);background:var(--panel);}
-    .profile-intro-copy{display:flex;flex-direction:column;gap:5px;min-width:0;overflow-wrap:anywhere}
-    .profile-intro-copy strong{font-size:clamp(17px,2vw,22px);line-height:1.25;letter-spacing:-.03em;color:var(--text)}
-    .profile-intro-copy span{font-size:clamp(10px,1.25vw,12px);line-height:1.5;color:var(--muted)}
-    @media(max-width:420px){.profile-intro{gap:12px;padding:11px}.profile-photo{width:84px;height:84px}.profile-intro-copy strong{font-size:17px}.profile-intro-copy span{font-size:10px}}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Rizwan | AWS Cloud & DevOps Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Scroll Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Glow Effects */
+        .glow-card:hover {
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+        
+        /* Diagram SVG Animation */
+        .diagram-arrow {
+            stroke-dasharray: 10;
+            animation: dash 3s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: -20; }
+        }
+    </style>
 </head>
-<body>
-  <div class="progress" id="progress" aria-hidden="true"></div>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#home" aria-label="Md Rizwan home">RIZWAN<span>.</span></a>
-      <nav class="nav" id="mainNav" aria-label="Main navigation">
-        <a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#approach">How I Work</a><a href="#lab">Troubleshooting</a><a href="#about">About</a><a href="#contact">Contact</a>
-      </nav>
-      <div class="nav-actions"><button class="icon-btn" id="themeToggle" type="button" aria-label="Switch color theme">☼</button><button class="menu-btn" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav">Menu</button></div>
+<body class="bg-[#11151d] text-slate-300 antialiased selection:bg-sky-500 selection:text-white">
+
+    <!-- Background Gradient Orbs -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-sky-600/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px]"></div>
     </div>
-  </header>
-  <main>
-    <section class="hero" id="home">
-      <div class="orb o1" aria-hidden="true"></div><div class="orb o2" aria-hidden="true"></div>
-      <div class="container hero-grid">
-        <div>
-          <div class="availability"><span class="dot"></span> Open to entry-level opportunities</div>
-          <div class="eyebrow">AWS Cloud · DevOps · Automation</div>
-          <h1>Building cloud infrastructure.<br><span class="gradient">Automating the repeatable.</span></h1>
-          <p class="hero-copy">I’m Md Rizwan, an aspiring AWS Cloud and DevOps Engineer focused on infrastructure automation, reliable deployments, and practical troubleshooting. I learn by building systems, testing them, and documenting what I discover.</p>
-          <div class="button-row">
-            <a class="btn btn-primary" href="#projects">Explore my project <span aria-hidden="true">↘</span></a>
-            <a class="btn btn-secondary" href="https://github.com/rizwancloud/" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/in/mdrizwanofficial" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-          </div>
-          <p class="hero-footnote">Hands-on learning · Infrastructure as Code · Continuous improvement</p>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-slate-950/10 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold text-white tracking-tighter">RIZWAN<span class="text-sky-500">.</span></a>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold">
+                <a href="#about" class="hover:text-sky-400 transition-colors">About</a>
+                <a href="#approach" class="hover:text-sky-400 transition-colors">Approach</a>
+                <a href="#skills" class="hover:text-sky-400 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-sky-400 transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-sky-400 transition-colors">Contact</a>
+            </div>
         </div>
-        <div class="terminal" aria-label="Illustration of an infrastructure workflow">
-          <div class="terminal-top"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-label">INFRASTRUCTURE / WORKFLOW</span></div>
-          <div class="profile-intro">
-            <!-- Replace images/rizwan.jpg with your photo path, for example ./my-photo.png -->
-            <img class="profile-photo" src="image.png" alt="Professional portrait of Md Rizwan">
-            <div class="profile-intro-copy"><strong>Md Rizwan</strong><span>AWS Cloud &amp; DevOps Engineer</span><span>Building · Automating · Troubleshooting</span></div>
-          </div>
-          <div class="code-line"><span class="prompt">$</span> <span class="cmd">terraform init</span></div>
-          <div class="code-line"><span class="success">✓</span> Initialize providers and modules</div>
-          <div class="code-line"><span class="prompt">$</span> <span class="cmd">terraform plan</span></div>
-          <div class="code-line"><span class="success">✓</span> Review proposed infrastructure changes</div>
-          <div class="code-line"><span class="prompt">$</span> <span class="cmd">terraform apply</span></div>
-          <div class="code-line"><span class="success">✓</span> Provision the reviewed configuration</div>
-          <div class="terminal-result"><div class="result-title">Cloud engineering workflow</div><div class="result-grid"><div class="result-cell"><b>Infrastructure</b><span>AWS + Terraform</span></div><div class="result-cell"><b>Access</b><span>IAM + SSM</span></div><div class="result-cell"><b>Delivery</b><span>Git + CI/CD</span></div><div class="result-cell"><b>Operations</b><span>Logs + Metrics</span></div></div></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-20 px-6 min-h-screen flex items-center">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center reveal">
+            <div>
+                <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-700 rounded-full px-4 py-1.5 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-xs font-mono text-slate-300">Open to entry-level opportunities</span>
+                </div>
+                <h1 class="text-5xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+                    Build reliable systems.<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 ">Automate what repeats.</span>
+                </h1>
+                <p class="text-lg text-slate-400 mb-8 max-w-lg leading-relaxed">
+                    I’m Md Rizwan, an aspiring AWS Cloud and DevOps Engineer based in Hyderabad. I learn by building practical projects across cloud infrastructure, CI/CD, containerization, and Kubernetes.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects" class="bg-sky-500 hover:bg-sky-400 text-white font-semibold py-3 px-6 rounded-lg transition-transform hover:-translate-y-1">View Projects <i class="fas fa-arrow-down ml-2"></i></a>
+                    <a href="https://github.com/rizwancloud" target="_blank" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold py-3 px-6 rounded-lg transition-transform hover:-translate-y-1"><i class="fab fa-github mr-2"></i> GitHub</a>
+                </div>
+            </div>
+            
+            <!-- Terminal Graphic -->
+            <div class="relative hidden md:block reveal delay-200">
+                <div class="absolute inset-0 bg-gradient-to-tr from-sky-500/10 to-indigo-500/10 rounded-2xl blur-2xl"></div>
+                <div class="relative bg-slate-900 border border-slate-700 rounded-2xl p-8 font-mono text-sm shadow-2xl">
+                    <div class="flex space-x-2 mb-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                    </div>
+                    <p class="text-sky-400">$ whoami</p>
+                    <p class="text-slate-300 mb-2">md_rizwan</p>
+                    <p class="text-sky-400">$ cat education.txt</p>
+                    <p class="text-slate-300 mb-2">B.Sc. Computer Science (2025)<br>MIT College of CS & IT</p>
+                    <p class="text-sky-400">$ systemctl status devops_skills</p>
+                    <p class="text-emerald-400">● active (running) - AWS, Terraform, Docker, K8s, Jenkins</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-    <div class="quick-strip"><div class="container strip-grid">
-      <div class="strip-item"><b>AWS infrastructure</b><span>Networking, compute, storage</span></div>
-      <div class="strip-item"><b>Infrastructure as Code</b><span>Terraform and CloudFormation</span></div>
-      <div class="strip-item"><b>Delivery automation</b><span>Git, Jenkins, Maven, Docker</span></div>
-      <div class="strip-item"><b>Operations mindset</b><span>Monitoring and troubleshooting</span></div>
-    </div></div>
 
-    <section id="projects"><div class="container">
-      <div class="section-heading"><div><div class="section-kicker">01 / Featured work</div><h2>Build it. Understand it.<br>Document it.</h2></div><p>One detailed project is more useful than a list of unverified claims. This case study highlights the architecture and implementation documented in my repository.</p></div>
-      <article class="panel project-feature">
-        <div class="project-info">
-          <div class="project-topline"><span class="status">Featured project</span><span class="project-number">PROJECT / 001</span></div>
-          <h3>Three-Tier Web Application on AWS with Terraform</h3>
-          <p>A multi-tier deployment in AWS Mumbai (ap-south-1), using Terraform to define the infrastructure and separate the web, application, and database responsibilities.</p>
-          <ul class="feature-list">
-            <li>Terraform modules for networking, load balancing, Auto Scaling, RDS, IAM, and monitoring.</li>
-            <li>Nginx web tier forwards requests to a Node.js / Express application on port 4000.</li>
-            <li>Amazon RDS for MySQL provides the application database.</li>
-            <li>Systems Manager Session Manager and VPC endpoints support instance management without exposing SSH to the public internet.</li>
-            <li>Startup scripts and an S3 bucket support deployment automation and project file storage.</li>
-          </ul>
-          <div class="tag-list"><span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">VPC</span><span class="tag">EC2</span><span class="tag">ALB</span><span class="tag">Auto Scaling</span><span class="tag">RDS MySQL</span><span class="tag">Nginx</span><span class="tag">Node.js</span><span class="tag">CloudWatch</span><span class="tag">IAM</span></div>
-          <div class="button-row"><a class="btn btn-primary" href="https://github.com/rizwancloud/terraform_code_3tier_deployment.git" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a><a class="btn btn-secondary" href="#approach">Explore the workflow</a></div>
+    <!-- About & Education -->
+    <section id="about" class="py-24 bg-slate-900/0 border-t border-slate-800 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-12 reveal"><span class="text-sky-500 font-mono text-sm block mb-2">01 / BACKGROUND</span>Learning by building.</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="reveal">
+                    <p class="text-slate-400 leading-relaxed mb-6">I completed a B.Sc. in Computer Science (2025) and pursued specialized training in AWS with DevOps and Linux Administration. I’m developing practical experience through hands-on projects rather than just theory.</p>
+                    <p class="text-slate-400 leading-relaxed">I’m looking for a fresher opportunity where I can contribute, learn from experienced engineers, and keep improving through real engineering work.</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-8 glow-card reveal delay-100">
+                    <h3 class="text-xl font-bold text-white mb-6"><i class="fas fa-graduation-cap text-sky-500 mr-2"></i> Education & Training</h3>
+                    <ul class="space-y-6 border-l border-slate-700 ml-2 pl-6 relative">
+                        <li class="relative">
+                            <span class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-sky-500 ring-4 ring-slate-900"></span>
+                            <strong class="text-white block">B.Sc. Computer Science</strong>
+                            <span class="text-sm text-slate-400">MIT College of CS & IT · 2025</span>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-orange-400 ring-4 ring-slate-900"></span>
+                            <strong class="text-white block">AWS with DevOps Training</strong>
+                            <span class="text-sm text-slate-400">Naresh i Technologies · Hyderabad</span>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[30px] top-1.5 w-3 h-3 rounded-full bg-red-500 ring-4 ring-slate-900"></span>
+                            <strong class="text-white block">Linux Administration</strong>
+                            <span class="text-sm text-slate-400">RHEL fundamentals & server ops</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="project-visual">
-          <div class="visual-caption"><span>REFERENCE ARCHITECTURE</span><span>AP-SOUTH-1</span></div>
-          
-<svg class="architecture" viewBox="0 0 520 490" role="img"
-     aria-labelledby="archTitle archDesc">
+    </section>
 
-  <title id="archTitle">Three-tier AWS application architecture</title>
-  <desc id="archDesc">
-    Traffic flows from internet users through an external load balancer
-    to the Nginx web tier, then through an internal load balancer to
-    the Node.js application tier and an RDS MySQL database.
-    IAM, Systems Manager, and CloudWatch support operations.
-  </desc>
-
-  <!-- Internet Users -->
-  <rect class="box" x="166" y="10" width="188" height="44" rx="9"/>
-  <text x="260" y="29" text-anchor="middle">Internet users</text>
-  <text class="small" x="260" y="43" text-anchor="middle">
-    HTTPS requests
-  </text>
-
-  <!-- Users to External Load Balancer -->
-  <path class="wire dots" d="M260 54V76"/>
-  <path class="wire light" d="M260 54V76"/>
-  <path class="wire arrow" style="animation-delay:0s"
-        d="M255 70l5 6 5-6"/>
-
-  <!-- External Load Balancer -->
-  <rect class="box box-accent" x="142" y="77" width="236" height="48" rx="9"/>
-  <text x="260" y="97" text-anchor="middle">External Load Balancer</text>
-  <text class="small" x="260" y="112" text-anchor="middle">
-    Listener · Target group · Health checks
-  </text>
-
-  <!-- External Load Balancer to Web Tier -->
-  <path class="wire dots" d="M260 125V147"/>
-  <path class="wire light" d="M260 125V147"/>
-  <path class="wire arrow" style="animation-delay:0.25s"
-        d="M255 141l5 6 5-6"/>
-
-  <!-- Web Tier -->
-  <rect class="box" x="80" y="148" width="360" height="48" rx="9"/>
-  <text x="260" y="168" text-anchor="middle">
-    Web tier · EC2 / Auto Scaling
-  </text>
-  <text class="small" x="260" y="183" text-anchor="middle">
-    Nginx reverse proxy
-  </text>
-
-  <!-- Web Tier to Internal Load Balancer -->
-  <path class="wire dots" d="M260 196V218"/>
-  <path class="wire light" d="M260 196V218"/>
-  <path class="wire arrow" style="animation-delay:0.5s"
-        d="M255 212l5 6 5-6"/>
-
-  <!-- Internal Load Balancer -->
-  <rect class="box box-accent" x="142" y="219" width="236" height="48" rx="9"/>
-  <text x="260" y="239" text-anchor="middle">Internal Load Balancer</text>
-  <text class="small" x="260" y="254" text-anchor="middle">
-    Listener · Target group · Health checks
-  </text>
-
-  <!-- Internal Load Balancer to Application Tier -->
-  <path class="wire dots" d="M260 267V289"/>
-  <path class="wire light" d="M260 267V289"/>
-  <path class="wire arrow" style="animation-delay:0.75s"
-        d="M255 283l5 6 5-6"/>
-
-  <!-- Application Tier -->
-  <rect class="box" x="80" y="290" width="360" height="48" rx="9"/>
-  <text x="260" y="310" text-anchor="middle">
-    Application tier · EC2 / Auto Scaling
-  </text>
-  <text class="small" x="260" y="325" text-anchor="middle">
-    Node.js / Express · Port 4000
-  </text>
-
-  <!-- Application Tier to Database -->
-  <path class="wire dots" d="M260 338V360"/>
-  <path class="wire light" d="M260 338V360"/>
-  <path class="wire arrow" style="animation-delay:1s"
-        d="M255 354l5 6 5-6"/>
-
-  <!-- Database -->
-  <rect class="box box-accent" x="142" y="361" width="236" height="43" rx="9"/>
-  <text x="260" y="380" text-anchor="middle">Amazon RDS</text>
-  <text class="small" x="260" y="395" text-anchor="middle">
-    MySQL database
-  </text>
-
-  <!-- Operations and Security -->
-  <rect class="box" x="93" y="424" width="334" height="48" rx="8"/>
-  <text x="260" y="444" text-anchor="middle">
-    Operations &amp; Security
-  </text>
-  <text class="small" x="260" y="459" text-anchor="middle">
-    IAM · Systems Manager · CloudWatch
-  </text>
-
-</svg>
-
-
-          <p class="project-note">Conceptual overview. Confirm exact subnet placement, listener rules, endpoint configuration, and security-group paths in the repository before using this as a deployment runbook.</p>
+    <!-- Approach Section -->
+    <section id="approach" class="py-24 border-t border-slate-800 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-12 reveal"><span class="text-sky-500 font-mono text-sm block mb-2">02 / WORKFLOW</span>Plan. Build. Verify. Improve.</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-slate-950 border border-slate-800 p-6 rounded-xl glow-card reveal"><span class="text-sky-500 font-mono text-xs font-bold mb-4 block"><i class="fas fa-search mr-1"></i> STEP 01</span><h3 class="text-lg font-bold text-white mb-2">Understand</h3><p class="text-sm text-slate-400">Map requirements, traffic flow, dependencies, and likely failure points.</p></div>
+                <div class="bg-slate-950 border border-slate-800 p-6 rounded-xl glow-card reveal delay-100"><span class="text-sky-500 font-mono text-xs font-bold mb-4 block"><i class="fas fa-cogs mr-1"></i> STEP 02</span><h3 class="text-lg font-bold text-white mb-2">Automate</h3><p class="text-sm text-slate-400">Keep configuration and delivery steps versioned and repeatable.</p></div>
+                <div class="bg-slate-950 border border-slate-800 p-6 rounded-xl glow-card reveal delay-200"><span class="text-sky-500 font-mono text-xs font-bold mb-4 block"><i class="fas fa-check-circle mr-1"></i> STEP 03</span><h3 class="text-lg font-bold text-white mb-2">Validate</h3><p class="text-sm text-slate-400">Check resource status, application health, and expected behavior.</p></div>
+                <div class="bg-slate-950 border border-slate-800 p-6 rounded-xl glow-card reveal delay-300"><span class="text-sky-500 font-mono text-xs font-bold mb-4 block"><i class="fas fa-file-alt mr-1"></i> STEP 04</span><h3 class="text-lg font-bold text-white mb-2">Document</h3><p class="text-sm text-slate-400">Record setup steps, explain decisions, and capture troubleshooting lessons.</p></div>
+            </div>
         </div>
-      </article>
-      <div class="project-details">
-        <div class="panel detail-card"><div class="mini-icon">01 / NETWORK</div><h4>Network boundaries</h4><p>Use a VPC, subnets, routing, security groups, and load-balancer placement to control how traffic reaches each tier.</p></div>
-        <div class="panel detail-card"><div class="mini-icon">02 / AUTOMATION</div><h4>Repeatable provisioning</h4><p>Keep infrastructure definitions in Terraform modules so resources can be reviewed and provisioned consistently.</p></div>
-        <div class="panel detail-card"><div class="mini-icon">03 / OPERATIONS</div><h4>Manage and observe</h4><p>Use IAM, Systems Manager, application logs, and CloudWatch to support safer access and troubleshooting.</p></div>
-      </div>
-    </div></section>
+    </section>
 
-    <section id="skills" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="container">
-      <div class="section-heading"><div><div class="section-kicker">02 / Technical toolkit</div><h2>Tools I’m building with</h2></div><p>Organized by the work each group helps accomplish. These are learning and hands-on areas—not a claim of expert-level production experience.</p></div>
-      <div class="skills-grid">
-        <article class="panel skill-card"><div class="skill-icon">AWS</div><h3>Cloud services</h3><p>Core infrastructure and managed services for cloud-hosted applications.</p><div class="skill-tags"><span>EC2</span><span>VPC</span><span>IAM</span><span>S3</span><span>EBS</span><span>RDS</span><span>ALB / ELB</span><span>Auto Scaling</span><span>Route 53</span><span>CloudWatch</span><span>CloudTrail</span><span>Lambda</span><span>SNS</span><span>CloudFront</span></div></article>
-        <article class="panel skill-card"><div class="skill-icon">IaC</div><h3>Infrastructure as Code</h3><p>Define infrastructure as code and organize reusable configuration.</p><div class="skill-tags"><span>Terraform</span><span>Modules</span><span>Variables</span><span>Outputs</span><span>CloudFormation</span></div></article>
-        <article class="panel skill-card"><div class="skill-icon">CI</div><h3>CI/CD and containers</h3><p>Version control, build automation, container workflows, and orchestration fundamentals.</p><div class="skill-tags"><span>Git</span><span>GitHub</span><span>Jenkins</span><span>Maven</span><span>Docker</span><span>Kubernetes</span></div></article>
-        <article class="panel skill-card"><div class="skill-icon">OS</div><h3>Linux administration</h3><p>Command-line administration and common server operations.</p><div class="skill-tags"><span>RHEL</span><span>Ubuntu</span><span>Users &amp; groups</span><span>Permissions</span><span>systemd</span><span>Cron</span><span>Packages</span><span>Logs</span></div></article>
-        <article class="panel skill-card"><div class="skill-icon">NET</div><h3>Networking and web</h3><p>Understand traffic flow and diagnose connectivity across application tiers.</p><div class="skill-tags"><span>TCP/IP</span><span>DNS</span><span>HTTP/HTTPS</span><span>Subnets</span><span>Route tables</span><span>Security groups</span><span>NACLs</span><span>Nginx</span><span>Apache</span></div></article>
-        <article class="panel skill-card"><div class="skill-icon">OPS</div><h3>Scripting and operations</h3><p>Build foundational automation and operational troubleshooting habits.</p><div class="skill-tags"><span>Python</span><span>Bash</span><span>CloudWatch Agent</span><span>Metrics</span><span>Logs</span><span>Health checks</span></div></article>
-      </div>
-      <div class="honesty-note"><strong>Portfolio principle:</strong> I’ll keep adding proof—source code, diagrams, test evidence, and troubleshooting notes—rather than presenting every listed technology as advanced expertise.</div>
-    </div></section>
-
-    <section id="approach"><div class="container">
-      <div class="section-heading"><div><div class="section-kicker">03 / Engineering approach</div><h2>How I approach a build</h2></div><p>A repeatable process helps make infrastructure changes easier to review, diagnose, and explain in an interview.</p></div>
-      <div class="workflow">
-        <div class="workflow-step"><div class="step-num">STEP 01</div><h3>Plan the architecture</h3><p>Identify requirements, traffic flow, network boundaries, access, and failure points before deploying.</p></div>
-        <div class="workflow-step"><div class="step-num">STEP 02</div><h3>Define as code</h3><p>Organize Terraform configuration, inputs, outputs, and modules; review the proposed plan.</p></div>
-        <div class="workflow-step"><div class="step-num">STEP 03</div><h3>Deploy and verify</h3><p>Check resource state, application health, connectivity, logs, and expected behavior after deployment.</p></div>
-        <div class="workflow-step"><div class="step-num">STEP 04</div><h3>Document and improve</h3><p>Record what worked, investigate failures methodically, and make the next deployment more repeatable.</p></div>
-      </div>
-    </div></section>
-
-    <section id="lab" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="container">
-      <div class="section-heading"><div><div class="section-kicker">04 / Troubleshooting lab</div><h2>Problems are part of the build.</h2></div><p>Short case notes show the investigation path. Expand each note to see the checks I use; exact root causes should be recorded only after verification.</p></div>
-      <div class="notes-grid">
-        <article class="panel note-card"><div class="note-label">AWS · Access</div><h3>Systems Manager session fails</h3><p>A private instance may be running but still fail to establish a Session Manager connection.</p><details><summary>Investigation checklist</summary><p>Check the attached instance role and required permissions, SSM Agent status, instance DNS and network access, interface endpoint availability, endpoint security-group rules for HTTPS, and relevant agent logs. Verify the fix with a new session.</p></details></article>
-        <article class="panel note-card"><div class="note-label">Web · Application</div><h3>Nginx returns an upstream error</h3><p>The web server can be running while the application behind it is unavailable.</p><details><summary>Investigation checklist</summary><p>Check whether the Node.js process is running and listening on the expected port; test the local health endpoint; inspect application and Nginx logs; verify the upstream address and security-group path between tiers.</p></details></article>
-        <article class="panel note-card"><div class="note-label">AWS · Load balancing</div><h3>Target group reports unhealthy targets</h3><p>Instances can be online without passing the load balancer health check.</p><details><summary>Investigation checklist</summary><p>Review the configured health-check path and port, target registration, application response, listener and target-group settings, and inbound rules. Test the health endpoint directly from an allowed network path before changing settings.</p></details></article>
-      </div>
-    </div></section>
-
-    <section id="about"><div class="container">
-      <div class="section-heading"><div><div class="section-kicker">05 / About & learning</div><h2>Learning by building</h2></div><p>I’m developing my cloud and DevOps skills through structured training, hands-on labs, and projects that I can explain from architecture to troubleshooting.</p></div>
-      <div class="about-grid">
-        <div class="panel about-card"><h3>Hi, I’m Rizwan.</h3>
-          <p>I graduated in 2025 with a B.Sc. in Computer Science and IT, then trained in RHEL Linux administration and in AWS with DevOps. I don’t have formal work experience yet, so I build things instead: my three-tier AWS project took me through real problems like Session Manager access, VPC endpoint rules, and Nginx upstream errors.</p>
-          <p>I’m looking for a fresher role where I can keep learning on real systems and contribute from day one.</p>
-          <div class="role-chips"><span>DevOps Engineer</span><span>AWS Cloud Engineer</span><span>Linux Administrator</span></div></div>
-        <div class="stats">
-          <div class="panel stat"><b data-count="3">0</b><span>application tiers built</span></div>
-          <div class="panel stat"><b data-count="7">0</b><span>Terraform modules</span></div>
-          <div class="panel stat"><b data-count="14">0</b><span>AWS services practiced</span></div>
-          <div class="panel stat"><b data-count="2">0</b><span>courses completed</span></div>
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-slate-900/0 border-t border-slate-800 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-12 reveal"><span class="text-sky-500 font-mono text-sm block mb-2">03 / TECHNICAL TOOLKIT</span>Tools for the job.</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Cloud -->
+                <div class="bg-slate-850 border border-slate-800 rounded-xl p-6 glow-card transition-all reveal">
+                    <i class="fab fa-aws text-3xl text-orange-400 mb-4 block"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Cloud Services</h3>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono mt-4">
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-server text-orange-400 mr-1.5"></i> EC2</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-network-wired text-sky-400 mr-1.5"></i> VPC</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-hdd text-green-400 mr-1.5"></i> S3</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-database text-blue-400 mr-1.5"></i> RDS</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-chart-line text-pink-400 mr-1.5"></i> CloudWatch</span>
+                    </div>
+                </div>
+                <!-- IaC -->
+                <div class="bg-slate-850 border border-slate-800 rounded-xl p-6 glow-card transition-all reveal delay-100">
+                    <i class="fas fa-layer-group text-3xl text-purple-500 mb-4 block"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Infrastructure as Code</h3>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono mt-4">
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-cubes text-purple-400 mr-1.5"></i> Terraform</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-puzzle-piece text-slate-400 mr-1.5"></i> Modules</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fab fa-aws text-orange-500 mr-1.5"></i> CloudFormation</span>
+                    </div>
+                </div>
+                <!-- CI/CD -->
+                <div class="bg-slate-850 border border-slate-800 rounded-xl p-6 glow-card transition-all reveal delay-200">
+                    <div class="flex gap-3 mb-4 text-3xl">
+                        <i class="fab fa-jenkins text-red-400"></i>
+                        <i class="fab fa-git-alt text-orange-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">CI/CD & Automation</h3>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono mt-4">
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fab fa-jenkins text-red-400 mr-1.5"></i> Jenkins</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fab fa-github text-white mr-1.5"></i> Git</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-feather-alt text-red-500 mr-1.5"></i> Maven</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-shield-check text-blue-300 mr-1.5"></i> SonarQube</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-lock text-slate-400 mr-1.5"></i> Trivy</span>
+                    </div>
+                </div>
+                <!-- Containers -->
+                <div class="bg-slate-850 border border-slate-800 rounded-xl p-6 glow-card transition-all reveal">
+                    <div class="flex gap-3 mb-4 text-3xl">
+                        <i class="fab fa-docker text-blue-500"></i>
+                        <i class="fas fa-dharmachakra text-sky-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Containers & K8s</h3>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono mt-4">
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fab fa-docker text-blue-500 mr-1.5"></i> Docker</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-dharmachakra text-sky-400 mr-1.5"></i> Kubernetes</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-sync-alt text-emerald-400 mr-1.5"></i> Argo CD</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-box-open text-purple-400 mr-1.5"></i> Kind</span>
+                    </div>
+                </div>
+                <!-- OS -->
+                <div class="bg-slate-850 border border-slate-800 rounded-xl p-6 glow-card transition-all reveal delay-100">
+                    <i class="fab fa-linux text-3xl text-yellow-500 mb-4 block"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Linux & OS</h3>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono mt-4">
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fab fa-redhat text-red-500 mr-1.5"></i> RHEL</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-cogs text-slate-400 mr-1.5"></i> systemd</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-terminal text-green-400 mr-1.5"></i> Bash</span>
+                    </div>
+                </div>
+                <!-- Networking -->
+                <div class="bg-slate-850 border border-slate-800 rounded-xl p-6 glow-card transition-all reveal delay-200">
+                    <i class="fas fa-project-diagram text-3xl text-emerald-400 mb-4 block"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Networking & Ops</h3>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono mt-4">
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-route text-sky-400 mr-1.5"></i> TCP/IP</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-globe text-blue-400 mr-1.5"></i> DNS</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fas fa-server text-green-500 mr-1.5"></i> Nginx</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-slate-300 flex items-center"><i class="fab fa-python text-yellow-400 mr-1.5"></i> Python</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item"><div class="timeline-date">2025</div><h3>B.Sc. in Computer Science</h3><p>MIT College of CS &amp; IT · SRTMUN University</p></div>
-        <div class="timeline-item"><div class="timeline-date">COMPLETED</div><h3>AWS with DevOps training</h3><p>Naresh i Technologies · Hyderabad</p></div>
-        <div class="timeline-item"><div class="timeline-date">COMPLETED</div><h3>RHEL Linux administration training</h3><p>Sadix Institute · Vashi, Mumbai · Users, permissions, systemd, SSH, Nginx, and log analysis.</p></div>
-        <div class="timeline-item"><div class="timeline-date">CURRENT FOCUS</div><h3>Building and documenting practical projects</h3><p>Improving Terraform workflows, deployment automation, Kubernetes fundamentals, and cloud monitoring.</p></div>
-      </div>
-    </div></section>
+    </section>
 
-    <section id="contact"><div class="container"><div class="contact-panel">
-      <div><div class="eyebrow">Let’s connect</div><h2>Have an opportunity or feedback?</h2><p>I’m looking for an entry-level AWS Cloud Engineer or DevOps Engineer role where I can contribute, keep learning, and grow through practical engineering work.</p></div>
-      <div class="contact-links"><a class="btn btn-primary" href="mailto:mrizwan.it3@gmail.com">Email me ↗</a><a class="btn btn-secondary" href="https://www.linkedin.com/in/mdrizwanofficial" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a><a class="btn btn-secondary" href="https://github.com/rizwancloud/" target="_blank" rel="noopener noreferrer">Explore GitHub ↗</a></div>
-    </div></div></section>
-  </main>
-  <footer class="footer"><div class="container footer-inner"><span>© <span id="year"></span> Md Rizwan · Built with curiosity and continuous improvement.</span><span><a href="#home">Back to top ↑</a></span></div></footer>
-  <script>
-    (() => {
-      const root = document.documentElement;
-      const themeToggle = document.getElementById('themeToggle');
-      const menuToggle = document.getElementById('menuToggle');
-      const nav = document.getElementById('mainNav');
-      document.getElementById('year').textContent = new Date().getFullYear();
-      try {
-        const savedTheme = localStorage.getItem('rizwan-portfolio-theme');
-        if (savedTheme === 'light' || savedTheme === 'dark') root.dataset.theme = savedTheme;
-      } catch (_) {}
-      const updateThemeButton = () => {
-        const light = root.dataset.theme === 'light';
-        themeToggle.textContent = light ? '☾' : '☼';
-        themeToggle.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
-      };
-      updateThemeButton();
-      themeToggle.addEventListener('click', () => {
-        root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
-        try { localStorage.setItem('rizwan-portfolio-theme', root.dataset.theme); } catch (_) {}
-        updateThemeButton();
-      });
-      menuToggle.addEventListener('click', () => {
-        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-        menuToggle.setAttribute('aria-expanded', String(!expanded));
-        nav.classList.toggle('open', !expanded);
-      });
-      nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      }));
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-12 reveal"><span class="text-sky-500 font-mono text-sm block mb-2">04 / SELECTED WORK</span>Projects built by doing.</h2>
+            
+            <div class="space-y-12">
+                <!-- Project 1 -->
+                <div class="group bg-slate-900/0 border border-slate-800 rounded-2xl overflow-hidden grid md:grid-cols-2 reveal">
+                    <div class="p-8 md:p-12 flex flex-col justify-center border-b md:border-b-0 md:border-r border-slate-800">
+                        <div class="text-xs font-mono text-sky-400 mb-4 uppercase tracking-wider flex items-center"><i class="fab fa-aws mr-2"></i> AWS · Terraform · Node.js</div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Three-Tier Web Application on AWS</h3>
+                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                            A highly available multi-tier architecture in ap-south-1. Terraform automates the provisioning of VPC networking, ALBs, Auto Scaling, and RDS. An Nginx reverse proxy routes traffic to the Node.js/Express backend.
+                        </p>
+                        <!-- Tech tags with icons -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="px-2 py-1 border border-slate-700 bg-slate-800 rounded text-xs text-slate-300 flex items-center"><i class="fab fa-aws text-orange-400 mr-1.5"></i> AWS</span>
+                            <span class="px-2 py-1 border border-slate-700 bg-slate-800 rounded text-xs text-slate-300 flex items-center"><i class="fas fa-cubes text-purple-400 mr-1.5"></i> Terraform</span>
+                            <span class="px-2 py-1 border border-slate-700 bg-slate-800 rounded text-xs text-slate-300 flex items-center"><i class="fas fa-network-wired text-sky-400 mr-1.5"></i> ALB</span>
+                            <span class="px-2 py-1 border border-slate-700 bg-slate-800 rounded text-xs text-slate-300 flex items-center"><i class="fas fa-server text-orange-300 mr-1.5"></i> EC2</span>
+                            <span class="px-2 py-1 border border-slate-700 bg-slate-800 rounded text-xs text-slate-300 flex items-center"><i class="fas fa-database text-blue-400 mr-1.5"></i> RDS MySQL</span>
+                            <span class="px-2 py-1 border border-slate-700 bg-slate-800 rounded text-xs text-slate-300 flex items-center"><i class="fas fa-desktop text-green-500 mr-1.5"></i> Nginx</span>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://github.com/rizwancloud/terraform_code_3tier_deployment" target="_blank" class="text-sm font-semibold text-white bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg transition-colors border border-slate-700"><i class="fas fa-code mr-2 text-sky-400"></i>Terraform Repo</a>
+                            <a href="https://github.com/rizwancloud/application_nodejs" target="_blank" class="text-sm font-semibold text-white bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg transition-colors border border-slate-700"><i class="fab fa-node-js mr-2 text-emerald-400"></i>Node.js Repo</a>
+                        </div>
+                    </div>
+                    <!-- Architecture Diagram SVG -->
+                    <div class="p-8 flex items-center justify-center bg-slate-900/0 relative">
+                        <p class="absolute top-4 left-6 text-xs font-mono text-slate-500 font-bold uppercase"><i class="fas fa-project-diagram mr-2"></i> Architecture Flow</p>
+                        <div class="w-full max-w-sm flex flex-col items-center mt-6">
+                            <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center border border-slate-600 z-10"><i class="fas fa-globe text-slate-300"></i></div>
+                            <svg class="w-2 h-6 text-sky-500" viewBox="0 0 10 30"><line x1="5" y1="0" x2="5" y2="30" stroke="currentColor" stroke-width="2" class="diagram-arrow"/></svg>
+                            <div class="w-full bg-slate-800 border border-sky-500/30 p-3 rounded-lg flex justify-center items-center shadow-[0_0_15px_rgba(56,189,248,0.1)] z-10">
+                                <i class="fas fa-network-wired text-sky-400 text-xl w-10 text-center"></i>
+                                <div><p class="text-sm font-bold text-white">External ALB</p><p class="text-[10px] text-slate-400">Load Balancer</p></div>
+                            </div>
+                            <svg class="w-2 h-6 text-emerald-500" viewBox="0 0 10 30"><line x1="5" y1="0" x2="5" y2="30" stroke="currentColor" stroke-width="2" class="diagram-arrow"/></svg>
+                            <div class="w-full bg-slate-800 border border-emerald-500/30 p-3 rounded-lg flex justify-center items-center shadow-[0_0_15px_rgba(16,185,129,0.1)] z-10">
+                                <i class="fas fa-server text-emerald-400 text-xl w-10 text-center"></i>
+                                <div><p class="text-sm font-bold text-white">Web Tier</p><p class="text-[10px] text-slate-400">EC2 · Nginx</p></div>
+                            </div>
+                            <svg class="w-2 h-6 text-sky-500" viewBox="0 0 10 30"><line x1="5" y1="0" x2="5" y2="30" stroke="currentColor" stroke-width="2" class="diagram-arrow"/></svg>
+                            <div class="w-full bg-slate-800 border border-sky-500/30 p-3 rounded-lg flex justify-center shadow-[0_0_15px_rgba(56,189,248,0.1)] z-10">
+                                <i class="fas fa-network-wired text-sky-400 text-xl w-10 text-center"></i>
+                                <div><p class="text-sm font-bold text-white">Internal ALB</p><p class="text-[10px] text-slate-400">Load Balancer</p></div>
+                            </div>
+                            <svg class="w-2 h-6 text-green-500" viewBox="0 0 10 30"><line x1="5" y1="0" x2="5" y2="30" stroke="currentColor" stroke-width="2" class="diagram-arrow"/></svg>
+                            <div class="w-full bg-slate-800 border border-green-500/30 p-3 rounded-lg flex justify-center shadow-[0_0_15px_rgba(34,197,94,0.1)] z-10">
+                                <i class="fab fa-node-js text-green-500 text-xl w-10 text-center"></i>
+                                <div><p class="text-sm font-bold text-white">App Tier</p><p class="text-[10px] text-slate-400">Node.js Express</p></div>
+                            </div>
+                            <svg class="w-2 h-6 text-blue-500" viewBox="0 0 10 30"><line x1="5" y1="0" x2="5" y2="30" stroke="currentColor" stroke-width="2" class="diagram-arrow"/></svg>
+                            <div class="w-full bg-slate-800 border border-blue-500/30 p-3 rounded-lg flex justify-center shadow-[0_0_15px_rgba(59,130,246,0.1)] z-10">
+                                <i class="fas fa-database text-blue-400 text-xl w-10 text-center"></i>
+                                <div><p class="text-sm font-bold text-white">Data Tier</p><p class="text-[10px] text-slate-400">Amazon RDS MySQL</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-      // --- upgrade: scroll reveal, counters, progress, active nav ---
-      const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const countUp = el => {
-        const to = +el.dataset.count; if (still) { el.textContent = to; return; }
-        const t0 = performance.now();
-        const tick = t => { const p = Math.min((t - t0) / 1200, 1); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); };
-        requestAnimationFrame(tick);
-      };
-      document.querySelectorAll('[data-count]').forEach(el => { if (still) el.textContent = el.dataset.count; });
-      if (!still && 'IntersectionObserver' in window) {
-        const items = document.querySelectorAll('.section-heading,.panel,.workflow,.timeline-item,.contact-panel,.honesty-note,.strip-item');
-        items.forEach(el => {
-          const i = [...el.parentElement.children].indexOf(el);
-          el.style.transitionDelay = Math.min(i, 5) * 90 + 'ms';
-          el.classList.add('reveal');
+                <!-- Project 2 -->
+                <div class="group bg-slate-900/0 border border-slate-800 rounded-2xl overflow-hidden grid md:grid-cols-2 reveal">
+                    <div class="p-8 md:p-12 flex flex-col justify-center border-b md:border-b-0 md:border-r border-slate-800 order-2 md:order-1">
+                        <div class="text-xs font-mono text-indigo-400 mb-4 uppercase tracking-wider flex items-center"><i class="fas fa-dharmachakra mr-2"></i> Jenkins · Kubernetes · Argo CD</div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Jenkins CI/CD for Java App</h3>
+                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                            A dual-pipeline workflow. Jenkins builds the Java app using Maven, scans with SonarQube & Trivy, and pushes to DockerHub. A CD pipeline updates Git manifests, allowing Argo CD to automatically sync the changes to a Kind Kubernetes cluster.
+                        </p>
+                        <!-- Tech tags with icons -->
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="px-2 py-1 border border-slate-700 bg-slate-800 rounded text-xs text-slate-300 flex items-center"><i class="fab fa-jenkins text-red-400 mr-1.5"></i> Jenkins</span>
+                            <span class="px-2 py-1 border border-slate-700 bg-slate-800 rounded text-xs text-slate-300 flex items-center"><i class="fas fa-feather-alt text-red-500 mr-1.5"></i> Maven</span>
+                            <span class="px-2 py-1 border border-slate-700 bg-slate-800 rounded text-xs text-slate-300 flex items-center"><i class="fab fa-docker text-blue-500 mr-1.5"></i> Docker</span>
+                            <span class="px-2 py-1 border border-slate-700 bg-slate-800 rounded text-xs text-slate-300 flex items-center"><i class="fas fa-shield-alt text-blue-300 mr-1.5"></i> SonarQube</span>
+                            <span class="px-2 py-1 border border-slate-700 bg-slate-800 rounded text-xs text-slate-300 flex items-center"><i class="fas fa-dharmachakra text-sky-400 mr-1.5"></i> Kubernetes</span>
+                            <span class="px-2 py-1 border border-slate-700 bg-slate-800 rounded text-xs text-slate-300 flex items-center"><i class="fas fa-sync-alt text-emerald-400 mr-1.5"></i> Argo CD</span>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://github.com/rizwancloud/registration_app_code" target="_blank" class="text-sm font-semibold text-white bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg transition-colors border border-slate-700"><i class="fas fa-code-branch mr-2 text-indigo-400"></i>CI / Java Code</a>
+                            <a href="https://github.com/rizwancloud/k8s_registe_app" target="_blank" class="text-sm font-semibold text-white bg-slate-800 hover:bg-slate-700 px-4 py-2 rounded-lg transition-colors border border-slate-700"><i class="fas fa-file-code mr-2 text-blue-500"></i>CD / Manifests</a>
+                        </div>
+                    </div>
+                    <!-- Pipeline Diagram SVG -->
+                    <div class="p-8 flex items-center justify-center bg-slate-900/0 relative order-1 md:order-2">
+                        <p class="absolute top-4 left-6 text-xs font-mono text-slate-500 font-bold uppercase"><i class="fas fa-stream mr-2"></i> CI/CD Pipeline</p>
+                        <div class="grid grid-cols-2 gap-4 w-full mt-6 relative">
+                            <div class="bg-slate-800 border border-slate-600 p-4 rounded-xl text-center z-10 relative">
+                                <span class="absolute -top-2 -left-2 w-5 h-5 bg-slate-900 border border-slate-600 text-[10px] font-bold rounded-full flex items-center justify-center text-white">1</span>
+                                <i class="fab fa-github text-white text-xl mb-1"></i><p class="text-[11px] font-bold text-white">Source</p>
+                            </div>
+                            <div class="bg-slate-800 border border-red-500/30 p-4 rounded-xl text-center z-10 relative">
+                                <span class="absolute -top-2 -left-2 w-5 h-5 bg-slate-900 border border-slate-600 text-[10px] font-bold rounded-full flex items-center justify-center text-white">2</span>
+                                <i class="fab fa-jenkins text-red-400 text-xl mb-1"></i><p class="text-[11px] font-bold text-white">Build (Maven)</p>
+                            </div>
+                            <div class="bg-slate-800 border border-orange-500/30 p-4 rounded-xl text-center z-10 relative">
+                                <span class="absolute -top-2 -left-2 w-5 h-5 bg-slate-900 border border-slate-600 text-[10px] font-bold rounded-full flex items-center justify-center text-white">3</span>
+                                <i class="fas fa-shield-alt text-orange-400 text-xl mb-1"></i><p class="text-[11px] font-bold text-white">Scan (Sonar/Trivy)</p>
+                            </div>
+                            <div class="bg-slate-800 border border-blue-500/30 p-4 rounded-xl text-center z-10 relative">
+                                <span class="absolute -top-2 -left-2 w-5 h-5 bg-slate-900 border border-slate-600 text-[10px] font-bold rounded-full flex items-center justify-center text-white">4</span>
+                                <i class="fab fa-docker text-blue-500 text-xl mb-1"></i><p class="text-[11px] font-bold text-white">Docker Publish</p>
+                            </div>
+                            <div class="bg-slate-800 border border-sky-500/30 p-4 rounded-xl text-center z-10 relative">
+                                <span class="absolute -top-2 -left-2 w-5 h-5 bg-slate-900 border border-slate-600 text-[10px] font-bold rounded-full flex items-center justify-center text-white">5</span>
+                                <i class="fas fa-code-branch text-sky-400 text-xl mb-1"></i><p class="text-[11px] font-bold text-white">Update Git K8s</p>
+                            </div>
+                            <div class="bg-slate-800 border border-emerald-500/30 p-4 rounded-xl text-center z-10 relative">
+                                <span class="absolute -top-2 -left-2 w-5 h-5 bg-slate-900 border border-slate-600 text-[10px] font-bold rounded-full flex items-center justify-center text-white">6</span>
+                                <i class="fas fa-dharmachakra text-emerald-400 text-xl mb-1"></i><p class="text-[11px] font-bold text-white">Argo CD Sync</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section id="contact" class="py-24 bg-slate-900/50 border-t border-slate-800 px-6">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="text-4xl font-bold text-white mb-6">Let's Connect</h2>
+            <p class="text-slate-400 mb-10">I'm currently seeking entry-level AWS Cloud or DevOps roles. If you have an opportunity or just want to chat about infrastructure, my inbox is open.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="mailto:mrizwan.it3@gmail.com" class="text-slate-300 hover:text-sky-400 text-3xl transition-transform hover:-translate-y-1"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/rizwancloud" target="_blank" class="text-slate-300 hover:text-sky-400 text-3xl transition-transform hover:-translate-y-1"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mdrizwanofficial" target="_blank" class="text-slate-300 hover:text-sky-400 text-3xl transition-transform hover:-translate-y-1"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-slate-500 text-sm border-t border-slate-800">
+        <p>© 2026 Md Rizwan. Built with curiosity and continuous improvement.</p>
+    </footer>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
         });
-        const io = new IntersectionObserver(es => es.forEach(e => {
-          if (!e.isIntersecting) return;
-          const el = e.target; el.classList.add('in'); io.unobserve(el);
-          el.querySelectorAll('[data-count]').forEach(countUp);
-          setTimeout(() => { el.classList.remove('reveal', 'in'); el.style.transitionDelay = ''; }, 1400);
-        }), { threshold: .12 });
-        items.forEach(el => io.observe(el));
-      }
-      const bar = document.getElementById('progress');
-      window.addEventListener('scroll', () => {
-        const h = document.documentElement; bar.style.width = (h.scrollTop / Math.max(h.scrollHeight - h.clientHeight, 1) * 100) + '%';
-      }, { passive: true });
-      if ('IntersectionObserver' in window) {
-        const links = [...nav.querySelectorAll('a')];
-        const spy = new IntersectionObserver(es => es.forEach(e => {
-          if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
-        }), { rootMargin: '-45% 0px -50% 0px' });
-        document.querySelectorAll('main section[id]').forEach(s => spy.observe(s));
-      }
-    })();
-  </script>
+    </script>
 </body>
 </html>
